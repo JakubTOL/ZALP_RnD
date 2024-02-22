@@ -1,0 +1,19 @@
+<Gen_tree>:
+BoxLayout:
+    orientation: 'vertical'
+    padding: [5,5,5,5]
+    Button:
+        size_hint: 1,0.1
+        text: 'Generate tree view'
+        on_release: tv.add_Structure()
+    # allows widget to be scrolled over content 
+    ScrollView:
+        do_scroll: False, True # x_axis scroll, y_axis scroll
+        bar_width: dp(10)
+        scroll_type: ['bars','content'] # bar follows content scroll
+        GenTree:
+            id:tv
+            size_hint_y: None
+            height: self.minimum_height
+            hide_root: True
+            

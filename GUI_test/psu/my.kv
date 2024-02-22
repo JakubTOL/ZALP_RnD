@@ -1,0 +1,13 @@
+<PsuWidget>:
+    orientation: 'vertical'
+    Button:
+        id: btn
+        text: 'Wciśnij'
+        on_press: root.update_voltage(self)
+    Label:
+        id: label_voltage
+        text: f'Napięcie: {str(root.voltage)}'
+    BoxLayout:
+        Label:
+            id: label
+            text: 'Stan "{}"'.format(btn.state)

@@ -1,0 +1,89 @@
+#<BackgroundColor@Widget>
+#    background_color: 1, 1, 1, 1
+#    canvas.before:
+#        Color:
+#            rgba: root.background_color
+#        Rectangle:
+#            size: self.size
+#            pos: self.pos
+#
+#<BackgroundLabel@Label+BackgroundColor>
+#    background_color: 1, 0, 0, 1
+
+<SignalScrollView>:
+    layout: layout
+
+    size_hint_y: 5
+    bar_width: 20
+
+    GridLayout:
+        id: layout
+        cols: 1
+        spacing: 10
+        padding: [40, 20]
+        size_hint_y: None  # needed for scrolling
+
+<SignalsWidget>:
+    title: title
+
+    orientation: 'vertical'
+    size_hint_y: None
+
+    # gray background just to see the widgets
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 0.2
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        id: title
+        bold: True
+        font_size: 20
+        # dark gray background to separate title and content
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 0.1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+<DetectedSignWidget>:
+    GridLayout:
+        id: content_layout
+        rows: 1
+        Label:
+            text: "Detected sign here"
+        Label:
+            text: "Detected suppl here"
+
+<DetectedLinesWidget>:
+    height: 500
+    GridLayout:
+        size_hint_y: 8
+        id: content_layout
+        cols: 3
+        GridLayout:
+            rows: 4
+            Label:
+                bold: True
+                text: "Left lane"
+            Label:
+                text: "Lane type"
+            Label:
+                text: "Lane color"
+            Label:
+                text: "Distance to lane"
+        GridLayout:
+            rows: 4
+            Label:
+                bold: True
+                text: "Right lane"
+            Label:
+                text: "Lane type"
+            Label:
+                text: "Lane color"
+            Label:
+                text: "Distance to lane"
+        Label:
+            text: "Lane detection status"
